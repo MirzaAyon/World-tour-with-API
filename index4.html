@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API </title>
+</head>
+
+<body>
+
+    <script>
+        const loadSingleUser = () => {
+            fetch('https://randomuser.me/api/')
+                .then(res => res.json())
+                .then(data => displaySingleUser(data.results[0]))
+        }
+        loadSingleUser();
+        const displaySingleUser = user => {
+            console.log(user)
+        }
+
+        //mealdb diye krbo
+
+        const loadMeals = searchText => {
+            const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+            fetch(url)
+                .then(res => res.json())
+                .then(data => console.log(data))
+        }
+        loadMeals('fish');
+
+    </script>
+</body>
+
+</html>
